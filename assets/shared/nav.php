@@ -76,7 +76,7 @@ $selectAuthorsQuery = mysqli_query($connect, $selectAuthors);
         <?php $i = 0; $limit = 4; foreach($selectAuthorsQuery as $selected) { $i++; ?>
           <a class="dropdown-item" href="/BeyondWords/assets/author/author.php?author=<?php echo $selected["id"]; ?>"><?php echo $selected["authorName"]; ?></a>
           <?php if($i == $limit){break;} } ?>
-          <a class="dropdown-item" href="/BeyondWords/assets/author/viewAuthors.php">View All Authors</a>
+          <a class="dropdown-item" href="/BeyondWords/assets/author/viewAuthors.php"><i class="fas fa-book-reader mr-2"></i>View All Authors</a>
         </div>
       </li>
       <li class="nav-item">
