@@ -64,6 +64,7 @@ form { /*new*/
         <label for="password">Password:</label>
         <input type="password" class="form-control" name="password" id="password" required><br>
         <button type="submit" name="login" class="float-right col-3">Login</button>
+        <a href="/BeyondWords/assets/admin/">Are you an admin?</a>
         <br><br>
       </div>
     </form>
