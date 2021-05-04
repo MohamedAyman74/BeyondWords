@@ -56,6 +56,15 @@ if (isset($_POST['purchase'])) {
     $totalPrice = 0;
   }
 }
+
+if(isset($_GET["remove"])){
+  $removed = $_GET["remove"];
+  $cart = $_SESSION["cart"];
+  print_r($cart);
+  unset($cart[$removed]);
+  $_SESSION["cart"] = $cart;
+  print_r($cart);
+}
 ?> 
 
 <div class="container mt-5">
@@ -67,6 +76,7 @@ if (isset($_POST['purchase'])) {
           <th scope="col">Book Name</th>
           <th scope="col">Quantity</th>
           <th scope="col">Unit Price</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -78,6 +88,7 @@ if (isset($_POST['purchase'])) {
           <td><?php echo $item->quantity; ?></td>
           <td><?php echo $item->price; ?></td>
           <?php $totalPrice +=$item->price * $item->quantity; ?>
+          <td><a href="/BeyondWords/assets/book/cart.php?remove=<?php echo $key; ?>"><i class="fas fa-times" style="color: red;"></i></a></td>
         </tr>
          <?php
             }

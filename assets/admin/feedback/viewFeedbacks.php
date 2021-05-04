@@ -26,7 +26,7 @@ include("/xampp/htdocs/BeyondWords/assets/admin/shared/adminNav.php");
       <?php foreach($selectQuery as $selected){ ?>
       <tr>
         <td class="text-center">
-          <?php echo $selected["id"]; ?>
+          <?php echo $selected["feedbackID"]; ?>
         </td>
         <td class="text-center">
           <?php echo $selected["title"]; ?>

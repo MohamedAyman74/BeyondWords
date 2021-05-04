@@ -41,6 +41,14 @@ $selectCatsQuery = mysqli_query($connect, $selectCategories);
 //Select all current authors
 $selectAuthors = "SELECT * FROM authors";
 $selectAuthorsQuery = mysqli_query($connect, $selectAuthors);
+
+//Select current user
+if(isset($_SESSION["user"])){
+  $userEmail = $_SESSION["user"];
+  $selectUser = "SELECT * FROM users WHERE email = '$userEmail'";
+  $selectUserQuery = mysqli_query($connect, $selectUser);
+  $userRow = mysqli_fetch_assoc($selectUserQuery);
+}
 ?> 
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -93,6 +101,7 @@ $selectAuthorsQuery = mysqli_query($connect, $selectAuthors);
           My Account
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/BeyondWords/assets/user/profile.php?profile=<?php echo $userRow['id']; ?>"><i class="fas fa-user-circle mr-2"></i>My Profile</a>
           <a class="dropdown-item" href="/BeyondWords/assets/book/cart.php"><i class="fas fa-cart-arrow-down mr-2"></i>My Cart</a>
           <a class="dropdown-item" href="/BeyondWords/assets/user/orders.php"><i class="fas fa-clipboard-list mr-2"></i>My Orders</a>
         </div>
